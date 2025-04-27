@@ -1,10 +1,15 @@
-name: Node.js Hello World Workflow
+name: Node.js Personalized Greeting Workflow
 
 on:
- workflow_dispatch:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Your name'
+        required: true
+        default: 'World'
 
 jobs:
-  run-node-script:
+  greet:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,5 +21,6 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Run hello.js
-        run: node hello.js
+      - name: Greet the user
+        run: node hello.js "${{ github.event.inputs.name }}"
+
