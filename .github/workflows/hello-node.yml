@@ -1,9 +1,7 @@
 name: Node.js Hello World Workflow
 
 on:
-  push:
-    branches:
-      - main
+ workflow_dispatch:
 
 jobs:
   run-node-script:
