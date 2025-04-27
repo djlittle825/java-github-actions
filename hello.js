@@ -1,1 +1,2 @@
-console.log("Hello from Node.js inside GitHub Actions!");
+const name = process.argv[2] || "World";
+console.log(`Hello, ${name}!`);
